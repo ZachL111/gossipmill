@@ -1,0 +1,17 @@
+{
+  "repo": "gossipmill",
+  "thresholds": {
+    "signal": 2,
+    "slack": 1,
+    "confidence": 1,
+    "drag": 3,
+    "ship": 183,
+    "watch": 101
+  },
+  "terms": [
+    "quorum health",
+    "lease drift",
+    "replica lag",
+    "membership churn"
+  ]
+}

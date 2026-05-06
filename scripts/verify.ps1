@@ -61,3 +61,9 @@ foreach ($pathPattern in $knownPaths) {
 cargo test
 
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-gossipmill-detail.ps1
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-gossipmill-properties.ps1
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-gossipmill-golden.ps1
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
