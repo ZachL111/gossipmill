@@ -1,0 +1,73 @@
+{
+  "repo": "gossipmill",
+  "language": "Rust",
+  "category": "Distributed systems",
+  "goal": "Simulate gossip membership and failure suspicion over lossy links.",
+  "review_model": {
+    "terms": [
+      "quorum health",
+      "lease drift",
+      "replica lag",
+      "membership churn"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "quorum health",
+      "signal": 41,
+      "slack": 22,
+      "drag": 20,
+      "confidence": 92,
+      "score": 136,
+      "lane": "watch"
+    },
+    {
+      "name": "stress",
+      "focus": "lease drift",
+      "signal": 48,
+      "slack": 28,
+      "drag": 28,
+      "confidence": 69,
+      "score": 109,
+      "lane": "watch"
+    },
+    {
+      "name": "edge",
+      "focus": "replica lag",
+      "signal": 77,
+      "slack": 29,
+      "drag": 26,
+      "confidence": 63,
+      "score": 168,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "membership churn",
+      "signal": 52,
+      "slack": 42,
+      "drag": 30,
+      "confidence": 74,
+      "score": 130,
+      "lane": "watch"
+    },
+    {
+      "name": "stale",
+      "focus": "quorum health",
+      "signal": 57,
+      "slack": 45,
+      "drag": 28,
+      "confidence": 89,
+      "score": 164,
+      "lane": "ship"
+    }
+  ]
+}
